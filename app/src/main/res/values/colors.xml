@@ -3,4 +3,12 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+
+    <!-- Customer colors -->
+    <color name="black">#000</color>
+    <color name="white">#fff</color>
+    <color name="dark_grey">#cc000000</color>
+    <color name="light_grey">#33ffffff</color>
+
 </resources>

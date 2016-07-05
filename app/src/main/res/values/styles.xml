@@ -17,4 +17,33 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
+
+    <!-- custom styles -->
+    <!-- Main Screen -->
+    <style name="bookworm_book_title">
+        <item name="android:textSize">20sp</item>
+        <item name="android:color">@color/dark_grey</item>
+    </style>
+
+    <style name="bookworm_year_of_publication">
+        <item name="android:textSize">12sp</item>
+        <item name="android:color">@color/dark_grey</item>
+    </style>
+
+    <style name="bookworm_genre">
+        <item name="android:textSize">16sp</item>
+        <item name="android:color">@color/dark_grey</item>
+    </style>
+
+    <style name="bookworm_author">
+        <item name="android:textSize">16sp</item>
+        <item name="android:color">@color/dark_grey</item>
+    </style>
+
+    <style name="bookworm_single_row_layout">
+        <item name="android:layout_margin">@dimen/activity_horizontal_margin</item>
+        <item name="android:padding">@dimen/activity_horizontal_margin</item>
+        <item name="android:background">@color/light_grey</item>
+    </style>
+
 </resources>

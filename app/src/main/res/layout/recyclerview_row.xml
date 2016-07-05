@@ -1,30 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    style="@style/bookworm_single_row_layout">
 
     <TextView
         android:id="@+id/book_title"
+        style="@style/bookworm_book_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text=""/>
+        android:text="@string/placeholder_book_title"/>
 
     <TextView
         android:id="@+id/year_of_publication"
+        style="@style/bookworm_year_of_publication"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text=""/>
+        android:text="@string/placeholder_year_of_publication"/>
 
     <TextView
         android:id="@+id/genre"
+        style="@style/bookworm_genre"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text=""/>
+        android:text="@string/placeholder_genre"/>
 
     <TextView
         android:id="@+id/author"
+        style="@style/bookworm_author"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text=""/>
+        android:text="@string/placeholder_author"/>
 
 </LinearLayout>

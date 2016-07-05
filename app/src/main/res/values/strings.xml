@@ -1,0 +1,22 @@
+<resources>
+
+    <!-- App Strings -->
+    <string name="app_name">BookWorm</string>
+
+    <!-- Menu Item Strings -->
+    <string name="action_settings" translatable="true">Settings</string>
+    <string name="new_book" translatable="true">New Book</string>
+
+    <!-- UI Elements -->
+    <!-- Main Screen -->
+
+
+    <!-- Placeholder Texts -->
+    <!-- Main Screen -->
+
+    <string name="placeholder_book_title" translatable="false">Book Title</string>
+    <string name="placeholder_year_of_publication" translatable="false">Year of Publication</string>
+    <string name="placeholder_genre" translatable="false">Genre</string>
+    <string name="placeholder_author" translatable="false">Author</string>
+
+</resources>

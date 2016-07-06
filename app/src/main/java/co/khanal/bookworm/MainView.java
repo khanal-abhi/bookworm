@@ -120,7 +120,9 @@ public class MainView extends AppCompatActivity implements BooksLoadedReceiver, 
 
     @Override
     public void onBookClicked(Book book) {
-
+        Intent intent = new Intent(getApplicationContext(), ViewBook.class);
+        intent.putExtra(BookContract.TABLE, book);
+        startActivity(intent);
     }
 
     @Override

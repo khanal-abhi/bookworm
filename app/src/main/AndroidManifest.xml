@@ -27,6 +27,15 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="co.khanal.bookworm.MainView" />
         </activity>
+        <activity
+            android:name=".ViewBook"
+            android:label="@string/title_activity_view_book"
+            android:parentActivityName=".MainView"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="co.khanal.bookworm.MainView" />
+        </activity>
     </application>
 
 </manifest>

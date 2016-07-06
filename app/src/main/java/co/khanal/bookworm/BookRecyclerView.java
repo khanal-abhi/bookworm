@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import java.util.List;
 
+import co.khanal.bookworm.interfaces.RecyclerClickListener;
 import co.khanal.bookworm.interfaces.RecyclerLongClickListener;
 import co.khanal.bookworm.pojo.Book;
 
@@ -65,7 +66,7 @@ public class BookRecyclerView extends RecyclerView.Adapter<BookRecyclerView.Book
 
         @Override
         public void onClick(View v) {
-            Snackbar.make(itemView, String.valueOf(getAdapterPosition()), Snackbar.LENGTH_SHORT).show();
+            ((RecyclerClickListener)mainView).onBookClicked(books.get(getAdapterPosition()));
         }
 
         @Override

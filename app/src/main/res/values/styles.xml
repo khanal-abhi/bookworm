@@ -43,9 +43,10 @@
     <style name="bookworm_single_row_layout">
         <item name="android:layout_width">match_parent</item>
         <item name="android:padding">10dp</item>
-        <item name="android:layout_marginLeft">5dp</item>
-        <item name="android:layout_marginRight">5dp</item>
-        <item name="android:layout_marginBottom">5dp</item>
+        <item name="android:layout_marginLeft">10dp</item>
+        <item name="android:layout_marginRight">10dp</item>
+        <item name="android:layout_marginBottom">10dp</item>
+        <item name="android:layout_marginTop">10dp</item>
         <item name="android:elevation">8dp</item>
         <item name="android:background">@color/background_grey</item>
     </style>

@@ -22,6 +22,6 @@ This is the view book screen. The app just seemed incomplete without this implem
 There is a pre-configured gradle wrapper included in the project. The project can be built using `./gradlew assembleDebug` command. The `.apk` file will be located in `app/build/outputs/apk` and named `app-debug.apk`. It can then be installed in the phone.
 
 ####Screenshots:
-<img scr="img/screenshot1.png" alt="Screenshot 1" width="200px" />
-<img scr="img/screenshot2.png" alt="Screenshot 2" width="200px" />
-<img scr="img/screenshot3.png" alt="Screenshot 3" width="200px" />
+<img src="img/screenshot1.png" alt="Screenshot 1" width="200px" />
+<img src="img/screenshot2.png" alt="Screenshot 2" width="200px" />
+<img src="img/screenshot3.png" alt="Screenshot 3" width="200px" />

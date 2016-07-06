@@ -27,4 +27,13 @@
     <string name="label_for_genre" translatable="true">Genre:</string>
     <string name="label_for_author" translatable="true">Author</string>
 
+    <!-- Add View Screen validators -->
+
+    <string name="book_title_error">Must have a Book Title!</string>
+    <string name="genre_error">Must have a Genre!</string>
+    <string name="author_error">Must have an Author!</string>
+    <string name="year_of_publication_error">Must have a 4 digit Year of Publication!</string>
+
+    <string name="general_error">All the fields must be valid before saving!</string>
+
 </resources>

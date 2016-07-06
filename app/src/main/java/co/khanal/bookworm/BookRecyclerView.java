@@ -72,7 +72,7 @@ public class BookRecyclerView extends RecyclerView.Adapter<BookRecyclerView.Book
         @Override
         public boolean onLongClick(View v) {
             Snackbar.make(itemView, v.getContext().getString(R.string.delete_book), Snackbar.LENGTH_SHORT)
-                    .setAction(v.getContext().getString(R.string.delete), new View.OnClickListener() {
+                    .setAction(v.getContext().getString(R.string.delete) + " " + books.get(getAdapterPosition()).getBook_title(), new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
                             ((RecyclerLongClickListener)mainView).onBookLongClicked(books.get(getAdapterPosition()));

@@ -25,3 +25,4 @@ There is a pre-configured gradle wrapper included in the project. The project ca
 <img src="img/screenshot1.png" alt="Screenshot 1" width="200px" />
 <img src="img/screenshot2.png" alt="Screenshot 2" width="200px" />
 <img src="img/screenshot3.png" alt="Screenshot 3" width="200px" />
+<img src="img/screenshot4.png" alt="Screenshot 4" width="200px" />

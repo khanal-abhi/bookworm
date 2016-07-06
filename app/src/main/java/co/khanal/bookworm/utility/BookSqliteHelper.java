@@ -1,6 +1,5 @@
 package co.khanal.bookworm.utility;
 
-import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -134,7 +133,9 @@ public class BookSqliteHelper extends SQLiteOpenHelper {
 
         String[] args = new String[]{"1"};
         String where_clause = "1";
-        Cursor cursor = db.query(BookContract.TABLE, SELECTION, where_clause, null, null, null, null);
+
+        // This is specifically for the newest added book to be at the top of the list.
+        Cursor cursor = db.query(BookContract.TABLE, SELECTION, where_clause, null, null, null, BookContract.ID + " DESC");
 
 
         if(cursor != null){

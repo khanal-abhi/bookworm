@@ -13,8 +13,7 @@ import java.util.List;
 import co.khanal.bookworm.interfaces.RecyclerLongClickListener;
 import co.khanal.bookworm.pojo.Book;
 
-/**
- * Created by abhi on 7/5/16.
+/* Recycler View Adapter for the books.
  */
 public class BookRecyclerView extends RecyclerView.Adapter<BookRecyclerView.BookViewHolder> {
 
@@ -31,8 +30,7 @@ public class BookRecyclerView extends RecyclerView.Adapter<BookRecyclerView.Book
     @Override
     public BookViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.recyclerview_row, null);
-        BookViewHolder holder = new BookViewHolder(view);
-        return holder;
+        return new BookViewHolder(view);
     }
 
     @Override

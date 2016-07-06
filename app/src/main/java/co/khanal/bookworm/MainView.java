@@ -10,6 +10,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -17,7 +18,6 @@ import org.json.JSONObject;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.StringTokenizer;
 
 import co.khanal.bookworm.interfaces.BooksLoadedReceiver;
 import co.khanal.bookworm.interfaces.RecyclerClickListener;
@@ -35,6 +35,7 @@ public class MainView extends AppCompatActivity implements BooksLoadedReceiver, 
     RecyclerView booksview;
     BookRecyclerView adapter;
     List<Book> books;
+    View root_view;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +46,7 @@ public class MainView extends AppCompatActivity implements BooksLoadedReceiver, 
         setSupportActionBar(toolbar);
 
         helper = new BookSqliteHelper(getApplicationContext(), BookContract.DB_NAME, null, BookContract.DB_VERSION);
-        List<Book> bookList = new ArrayList<Book>();
+        List<Book> bookList = new ArrayList<>();
 
 
         /* check to see if there are books already saved in the database. If so, load the books
@@ -66,6 +67,8 @@ public class MainView extends AppCompatActivity implements BooksLoadedReceiver, 
         booksview.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
         booksview.setAdapter(adapter);
         booksview.setHasFixedSize(false);
+
+        root_view = findViewById(R.id.coordinator_view);
 
 
 
@@ -128,7 +131,7 @@ public class MainView extends AppCompatActivity implements BooksLoadedReceiver, 
         adapter = new BookRecyclerView(getApplicationContext(), books, this);
         booksview.setAdapter(adapter);
 
-        Snackbar.make(findViewById(R.id.coordinator_view), getString(R.string.book_deleted), Snackbar.LENGTH_SHORT).show();
+        Snackbar.make(root_view, getString(R.string.book_deleted), Snackbar.LENGTH_SHORT).show();
     }
 
     public class load_books_from_json extends AsyncTask<BooksLoadedReceiver, Void, List<Book>>{
@@ -139,9 +142,9 @@ public class MainView extends AppCompatActivity implements BooksLoadedReceiver, 
         protected List<Book> doInBackground(BooksLoadedReceiver... params) {
             receiver = params[0];
 
-            String json_books = "";
+            String json_books;
 
-            List<Book> loaded_books = new ArrayList<Book>();
+            List<Book> loaded_books = new ArrayList<>();
 
             try {
 
@@ -208,7 +211,8 @@ public class MainView extends AppCompatActivity implements BooksLoadedReceiver, 
             adapter = new BookRecyclerView(getApplicationContext(), books, this);
             booksview.setAdapter(adapter);
 
-            Snackbar.make(findViewById(R.id.coordinator_view), getString(R.string.added_book), Snackbar.LENGTH_SHORT).show();
+
+            Snackbar.make(booksview, getString(R.string.added_book), Snackbar.LENGTH_SHORT).show();
         }
     }
 }

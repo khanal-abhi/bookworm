@@ -41,9 +41,11 @@
     </style>
 
     <style name="bookworm_single_row_layout">
-        <item name="android:layout_margin">@dimen/activity_horizontal_margin</item>
-        <item name="android:padding">@dimen/activity_horizontal_margin</item>
-        <item name="android:background">@color/light_grey</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:layout_margin">5dp</item>
+        <item name="android:elevation">8dp</item>
+        <item name="android:background">@color/background_grey</item>
     </style>
 
 </resources>

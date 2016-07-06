@@ -1,0 +1,43 @@
+[
+  {
+    "book_title": "Great Expectations",
+    "year_of_publication": 1861,
+    "genre": "Fiction",
+    "author": "Charles Dickens"
+  },
+
+  {
+    "book_title": "The Great Gatsby",
+    "year_of_publication": 1925,
+    "genre": "Fiction",
+    "author": "F. Scott Fitzgerald"
+  },
+
+  {
+    "book_title": "The Canterbury Tales",
+    "year_of_publication": 1386,
+    "genre": "History",
+    "author": "Geoffrey Chaucer"
+  },
+
+  {
+    "book_title": "Arabian Nights",
+    "year_of_publication": 1706,
+    "genre": "Fiction",
+    "author": "English Translation"
+  },
+
+  {
+    "book_title": "The Saga of Darren Shan",
+    "year_of_publication": 2008,
+    "genre": "Horror",
+    "author": "Darren Shan"
+  },
+
+  {
+    "book_title": "Procession of The Dead",
+    "year_of_publication": 1999,
+    "genre": "Horror",
+    "author": "Darren Shan"
+  }
+]

@@ -9,7 +9,7 @@ public class BookContract {
     public static String DB_NAME = "bookwornm";
 
 //    Database Version
-    public static long DB_VERSION = 1;
+    public static int DB_VERSION = 1;
 
 //    Table Name
     public static String TABLE = "book";
@@ -21,5 +21,16 @@ public class BookContract {
     public static String GENRE = "genre";
     public static String AUTHOR = "author";
 
+//    CREATE Table SQL
+    public static String CREATE_TABLE = "CREATE TABLE IF NOT EXISTS " +
+        TABLE + " ( " +
+        ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+        BOOK_TITLE + " TEXT, " +
+        YEAR_OF_PUBLICATION + " INTEGER, " +
+        GENRE + " TEXT, " +
+        AUTHOR + " TEXT );";
+
+//    DROP Table SQL
+    public static String DROP_TABLE = "DROP TABLE IF EXISTS " + TABLE +  ";";
 
 }

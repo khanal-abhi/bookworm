@@ -1,5 +1,6 @@
 package co.khanal.bookworm.pojo;
 
+import android.content.ContentValues;
 import android.os.Bundle;
 import android.os.Parcel;
 import android.os.Parcelable;
@@ -165,4 +166,22 @@ public class Book implements Parcelable{
 
         dest.writeBundle(book_to_bundle);
     }
+
+    public boolean isValid(){
+        return book_title != null &&
+                year_of_publication != 0 &&
+                genre != null &&
+                author != null;
+    }
+
+    public ContentValues to_content_values(){
+        ContentValues cv = new ContentValues();
+        cv.put(BookContract.BOOK_TITLE, book_title);
+        cv.put(BookContract.YEAR_OF_PUBLICATION, year_of_publication);
+        cv.put(BookContract.GENRE, genre);
+        cv.put(BookContract.AUTHOR, author);
+
+        return cv;
+    }
+
 }

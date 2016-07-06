@@ -3,6 +3,7 @@ package co.khanal.bookworm;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -16,6 +17,7 @@ import org.json.JSONObject;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.StringTokenizer;
 
 import co.khanal.bookworm.interfaces.BooksLoadedReceiver;
 import co.khanal.bookworm.pojo.Book;
@@ -23,6 +25,8 @@ import co.khanal.bookworm.pojo.BookContract;
 import co.khanal.bookworm.utility.BookSqliteHelper;
 
 public class MainView extends AppCompatActivity implements BooksLoadedReceiver{
+
+    public static int REQUEST_CODE = 100;
 
     BookSqliteHelper helper;
     RecyclerView booksview;
@@ -80,7 +84,7 @@ public class MainView extends AppCompatActivity implements BooksLoadedReceiver{
         switch (id){
             case R.id.add_book:
                 Intent intent = new Intent(getApplicationContext(), AddView.class);
-                startActivity(intent);
+                startActivityForResult(intent, REQUEST_CODE);
                 break;
 
             default:
@@ -173,5 +177,19 @@ public class MainView extends AppCompatActivity implements BooksLoadedReceiver{
         }
 
 
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if(resultCode == RESULT_OK){
+
+            books = helper.getBooks();
+            adapter = new BookRecyclerView(getApplicationContext(), books);
+            booksview.setAdapter(adapter);
+
+            Snackbar.make(findViewById(R.id.coordinator_view), getString(R.string.added_book), Snackbar.LENGTH_SHORT).show();
+        }
     }
 }

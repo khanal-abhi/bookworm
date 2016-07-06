@@ -1,7 +1,7 @@
 <resources>
 
     <!-- App Strings -->
-    <string name="app_name">BookWorm</string>
+    <string name="app_name" translatable="false">BookWorm</string>
 
     <!-- Menu Item Strings -->
     <string name="action_settings" translatable="true">Settings</string>
@@ -29,11 +29,13 @@
 
     <!-- Add View Screen validators -->
 
-    <string name="book_title_error">Must have a Book Title!</string>
-    <string name="genre_error">Must have a Genre!</string>
-    <string name="author_error">Must have an Author!</string>
-    <string name="year_of_publication_error">Must have a 4 digit Year of Publication!</string>
+    <string name="book_title_error" translatable="true">Must have a Book Title!</string>
+    <string name="genre_error" translatable="true">Must have a Genre!</string>
+    <string name="author_error" translatable="true">Must have an Author!</string>
+    <string name="year_of_publication_error" translatable="true">Must have a 4 digit Year of Publication!</string>
 
-    <string name="general_error">All the fields must be valid before saving!</string>
+    <string name="general_error" translatable="true">All the fields must be valid before saving!</string>
+
+    <string name="added_book" translatable="true">Book added successfully!</string>
 
 </resources>

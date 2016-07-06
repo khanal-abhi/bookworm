@@ -23,7 +23,10 @@
         android:id="@+id/book_title"
         android:layout_below="@id/label_for_book_title"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:imeOptions="actionNext">
+        <requestFocus/>
+        </EditText>
 
     <TextView
         android:id="@+id/label_for_year_of_publication"
@@ -38,7 +41,8 @@
         android:layout_below="@id/label_for_year_of_publication"
         android:inputType="number"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:imeOptions="actionNext"/>
 
     <TextView
         android:id="@+id/label_for_genre"
@@ -52,7 +56,8 @@
         android:id="@+id/genre"
         android:layout_below="@id/label_for_genre"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:imeOptions="actionNext"/>
 
     <TextView
         android:id="@+id/label_for_author"
@@ -66,6 +71,7 @@
         android:id="@+id/author"
         android:layout_below="@id/label_for_author"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:imeOptions="actionDone"/>
 
 </RelativeLayout>

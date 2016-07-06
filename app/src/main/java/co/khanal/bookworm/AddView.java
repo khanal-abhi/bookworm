@@ -1,5 +1,6 @@
 package co.khanal.bookworm;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -10,6 +11,10 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import co.khanal.bookworm.pojo.Book;
+import co.khanal.bookworm.pojo.BookContract;
+import co.khanal.bookworm.utility.BookSqliteHelper;
 
 public class AddView extends AppCompatActivity {
 
@@ -115,6 +120,20 @@ public class AddView extends AppCompatActivity {
                 // check the validation of the fields
                 if(book_title.getError() == null && year_of_publication.getError() == null &&
                         genre.getError() == null && author.getError() == null){
+
+                    Book temp_book = new Book(
+                            book_title.getText().toString(),
+                            Integer.valueOf(year_of_publication.getText().toString()),
+                            genre.getText().toString(),
+                            author.getText().toString()
+                    );
+
+                    BookSqliteHelper helper = new BookSqliteHelper(getApplicationContext(), BookContract.DB_NAME, null, BookContract.DB_VERSION);
+                    helper.insertBook(temp_book);
+
+                    Intent intent = new Intent();
+                    setResult(MainView.RESULT_OK);
+                    finish();
 
                 } else {
                     Snackbar.make(view, getString(R.string.general_error), Snackbar.LENGTH_SHORT).show();

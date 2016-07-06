@@ -40,17 +40,20 @@ public class MainView extends AppCompatActivity implements BooksLoadedReceiver{
         List<Book> bookList = new ArrayList<Book>();
 
 
+        /* check to see if there are books already saved in the database. If so, load the books
+        otherwise, load up the database from the included json file.
+         */
         if(helper.getBooks().size() == 0){
 
             new load_books_from_json().execute(this);
 
-
-
         } else {
             bookList = helper.getBooks();
         }
+
         adapter = new BookRecyclerView(getApplicationContext(), bookList);
 
+        // set up the recyclerview to load items in a linear fashion.
         booksview = (RecyclerView)findViewById(R.id.booksview);
         booksview.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
         booksview.setAdapter(adapter);
@@ -69,14 +72,16 @@ public class MainView extends AppCompatActivity implements BooksLoadedReceiver{
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
+
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        // Switch statement to go through the menu items. It is easier if more items are added
+        switch (id){
+            case R.id.add_book:
+                break;
+
+            default:
+                break;
         }
 
         return super.onOptionsItemSelected(item);
@@ -87,13 +92,15 @@ public class MainView extends AppCompatActivity implements BooksLoadedReceiver{
 
         books = loaded_books;
 
+        // Insert each book from the list into the database for persistence
         for (Book book: books){
             helper.insertBook(book);
         }
 
+        // Extract the books from the database
         books = helper.getBooks();
-        Log.d(getClass().getSimpleName(), books.toString());
 
+        // Set up the adapter for the recyclerview and bind it.
         adapter = new BookRecyclerView(getApplicationContext(), helper.getBooks());
         booksview.setAdapter(adapter);
     }
@@ -111,6 +118,10 @@ public class MainView extends AppCompatActivity implements BooksLoadedReceiver{
             List<Book> loaded_books = new ArrayList<Book>();
 
             try {
+
+                /* Saved the books.json file in assets folder so that it can be accessed when needed.
+                This was the initial books list can be updated just by updating the file.
+                 */
                 InputStream inputStream = getAssets().open("books.json");
                 int size = inputStream.available();
                 byte[] buffer = new byte[size];
@@ -118,10 +129,17 @@ public class MainView extends AppCompatActivity implements BooksLoadedReceiver{
                 inputStream.close();
                 json_books = new String(buffer, "UTF-8");
 
+                /* json_books now contains a string representation of json array so need to decode
+                it to JSONArray.
+                 */
                 JSONArray json_books_array = new JSONArray(json_books);
 
                 for(int i = 0; i < json_books_array.length(); i++){
+
+                    // Extract JSONObject version of the books from the array
                     JSONObject json_book = json_books_array.getJSONObject(i);
+
+                    // Convert the json books to java books
                     Book java_book = new Book(
                             json_book.getString(BookContract.BOOK_TITLE),
                             json_book.getInt(BookContract.YEAR_OF_PUBLICATION),
@@ -129,8 +147,7 @@ public class MainView extends AppCompatActivity implements BooksLoadedReceiver{
                             json_book.getString(BookContract.AUTHOR)
                     );
 
-                    Log.d(getClass().getSimpleName(), java_book.toString());
-
+                    // Load the java books to an arraylist for future use.
                     loaded_books.add(java_book);
 
                 }
@@ -140,14 +157,14 @@ public class MainView extends AppCompatActivity implements BooksLoadedReceiver{
                 e.printStackTrace();
             }
 
-
-
             return loaded_books;
         }
 
         @Override
         protected void onPostExecute(List<Book> books) {
             super.onPostExecute(books);
+
+            /* Notify the receiver that the books have been loaded and pass the books to them. */
             receiver.onBooksLoaded(books);
 
         }

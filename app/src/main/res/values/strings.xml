@@ -18,5 +18,13 @@
     <string name="placeholder_year_of_publication" translatable="false">Year of Publication</string>
     <string name="placeholder_genre" translatable="false">Genre</string>
     <string name="placeholder_author" translatable="false">Author</string>
+    <string name="title_activity_add_view">AddView</string>
+
+    <!-- Add View Screen -->
+
+    <string name="label_for_book_title" translatable="true">Book Title:</string>
+    <string name="label_for_year_of_publication" translatable="true">Year of Publication:</string>
+    <string name="label_for_genre" translatable="true">Genre:</string>
+    <string name="label_for_author" translatable="true">Author</string>
 
 </resources>

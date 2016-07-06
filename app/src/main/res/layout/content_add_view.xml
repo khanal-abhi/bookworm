@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="co.khanal.bookworm.AddView"
+    tools:showIn="@layout/activity_add_view">
+
+    <TextView
+        android:id="@+id/label_for_book_title"
+        android:text="@string/label_for_book_title"
+        style="@style/bookworm_book_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:id="@+id/book_title"
+        android:layout_below="@id/label_for_book_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/label_for_year_of_publication"
+        android:layout_below="@id/book_title"
+        android:text="@string/label_for_year_of_publication"
+        style="@style/bookworm_book_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:id="@+id/year_of_publication"
+        android:layout_below="@id/label_for_year_of_publication"
+        android:inputType="number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/label_for_genre"
+        android:layout_below="@id/year_of_publication"
+        android:text="@string/label_for_genre"
+        style="@style/bookworm_book_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:id="@+id/genre"
+        android:layout_below="@id/label_for_genre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/label_for_author"
+        android:layout_below="@id/genre"
+        android:text="@string/label_for_author"
+        style="@style/bookworm_book_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:id="@+id/author"
+        android:layout_below="@id/label_for_author"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</RelativeLayout>

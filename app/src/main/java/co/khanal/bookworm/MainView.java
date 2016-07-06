@@ -1,12 +1,12 @@
 package co.khanal.bookworm;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -34,6 +34,7 @@ public class MainView extends AppCompatActivity implements BooksLoadedReceiver{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_view);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+
         setSupportActionBar(toolbar);
 
         helper = new BookSqliteHelper(getApplicationContext(), BookContract.DB_NAME, null, BookContract.DB_VERSION);
@@ -78,6 +79,8 @@ public class MainView extends AppCompatActivity implements BooksLoadedReceiver{
         // Switch statement to go through the menu items. It is easier if more items are added
         switch (id){
             case R.id.add_book:
+                Intent intent = new Intent(getApplicationContext(), AddView.class);
+                startActivity(intent);
                 break;
 
             default:

@@ -38,4 +38,10 @@
 
     <string name="added_book" translatable="true">Book added successfully!</string>
 
+
+    <!-- BookRecyclerView -->
+    <string name="delete_book" translatable="true">Are you sure you want to delete this book?</string>
+    <string name="delete" translatable="true">DELETE</string>
+    <string name="book_deleted" translatable="true">The book has been deleted successfully!</string>
+
 </resources>

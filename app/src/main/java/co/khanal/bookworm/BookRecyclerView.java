@@ -1,6 +1,7 @@
 package co.khanal.bookworm;
 
 import android.content.Context;
+import android.support.design.widget.Snackbar;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +10,7 @@ import android.widget.TextView;
 
 import java.util.List;
 
+import co.khanal.bookworm.interfaces.RecyclerLongClickListener;
 import co.khanal.bookworm.pojo.Book;
 
 /**
@@ -18,10 +20,12 @@ public class BookRecyclerView extends RecyclerView.Adapter<BookRecyclerView.Book
 
     List<Book> books;
     Context mContext;
+    MainView mainView;
 
-    public BookRecyclerView(Context mContext, List<Book> books){
+    public BookRecyclerView(Context mContext, List<Book> books, MainView mainView){
         this.mContext = mContext;
         this.books = books;
+        this.mainView = mainView;
     }
 
     @Override
@@ -47,16 +51,36 @@ public class BookRecyclerView extends RecyclerView.Adapter<BookRecyclerView.Book
         return books.size();
     }
 
-    public class BookViewHolder extends RecyclerView.ViewHolder{
+    public class BookViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener{
 
         TextView book_title, year_of_publication, genre, author;
 
         public BookViewHolder(View itemView) {
             super(itemView);
+            itemView.setOnClickListener(this);
+            itemView.setOnLongClickListener(this);
             book_title = (TextView)itemView.findViewById(R.id.book_title);
             year_of_publication = (TextView)itemView.findViewById(R.id.year_of_publication);
             genre = (TextView)itemView.findViewById(R.id.genre);
             author = (TextView)itemView.findViewById(R.id.author);
+        }
+
+        @Override
+        public void onClick(View v) {
+            Snackbar.make(itemView, String.valueOf(getAdapterPosition()), Snackbar.LENGTH_SHORT).show();
+        }
+
+        @Override
+        public boolean onLongClick(View v) {
+            Snackbar.make(itemView, v.getContext().getString(R.string.delete_book), Snackbar.LENGTH_SHORT)
+                    .setAction(v.getContext().getString(R.string.delete), new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            ((RecyclerLongClickListener)mainView).onBookLongClicked(books.get(getAdapterPosition()));
+                        }
+                    }).show();
+
+            return true;
         }
     }
 }

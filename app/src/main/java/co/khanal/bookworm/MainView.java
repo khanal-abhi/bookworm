@@ -20,11 +20,14 @@ import java.util.List;
 import java.util.StringTokenizer;
 
 import co.khanal.bookworm.interfaces.BooksLoadedReceiver;
+import co.khanal.bookworm.interfaces.RecyclerClickListener;
+import co.khanal.bookworm.interfaces.RecyclerLongClickListener;
 import co.khanal.bookworm.pojo.Book;
 import co.khanal.bookworm.pojo.BookContract;
 import co.khanal.bookworm.utility.BookSqliteHelper;
 
-public class MainView extends AppCompatActivity implements BooksLoadedReceiver{
+public class MainView extends AppCompatActivity implements BooksLoadedReceiver, RecyclerClickListener,
+        RecyclerLongClickListener {
 
     public static int REQUEST_CODE = 100;
 
@@ -56,7 +59,7 @@ public class MainView extends AppCompatActivity implements BooksLoadedReceiver{
             bookList = helper.getBooks();
         }
 
-        adapter = new BookRecyclerView(getApplicationContext(), bookList);
+        adapter = new BookRecyclerView(getApplicationContext(), bookList, this);
 
         // set up the recyclerview to load items in a linear fashion.
         booksview = (RecyclerView)findViewById(R.id.booksview);
@@ -108,8 +111,24 @@ public class MainView extends AppCompatActivity implements BooksLoadedReceiver{
         books = helper.getBooks();
 
         // Set up the adapter for the recyclerview and bind it.
-        adapter = new BookRecyclerView(getApplicationContext(), helper.getBooks());
+        adapter = new BookRecyclerView(getApplicationContext(), helper.getBooks(), this);
         booksview.setAdapter(adapter);
+    }
+
+    @Override
+    public void onBookClicked(Book book) {
+
+    }
+
+    @Override
+    public void onBookLongClicked(Book book) {
+        helper.deleteBook(book.get_id());
+
+        books = helper.getBooks();
+        adapter = new BookRecyclerView(getApplicationContext(), books, this);
+        booksview.setAdapter(adapter);
+
+        Snackbar.make(findViewById(R.id.coordinator_view), getString(R.string.book_deleted), Snackbar.LENGTH_SHORT).show();
     }
 
     public class load_books_from_json extends AsyncTask<BooksLoadedReceiver, Void, List<Book>>{
@@ -186,7 +205,7 @@ public class MainView extends AppCompatActivity implements BooksLoadedReceiver{
         if(resultCode == RESULT_OK){
 
             books = helper.getBooks();
-            adapter = new BookRecyclerView(getApplicationContext(), books);
+            adapter = new BookRecyclerView(getApplicationContext(), books, this);
             booksview.setAdapter(adapter);
 
             Snackbar.make(findViewById(R.id.coordinator_view), getString(R.string.added_book), Snackbar.LENGTH_SHORT).show();

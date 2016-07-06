@@ -55,7 +55,7 @@ public class AddView extends AppCompatActivity {
             // Text input has changed
             @Override
             public void afterTextChanged(Editable s) {
-                if(book_title.getText().toString().isEmpty())
+                if(book_title.getText().toString().trim().isEmpty())
                     book_title.setError(getString(R.string.book_title_error));
             }
         });
@@ -73,7 +73,7 @@ public class AddView extends AppCompatActivity {
             // Text input has changed
             @Override
             public void afterTextChanged(Editable s) {
-                if(genre.getText().toString().isEmpty())
+                if(genre.getText().toString().trim().isEmpty())
                     genre.setError(getString(R.string.genre_error));
             }
         });
@@ -91,7 +91,7 @@ public class AddView extends AppCompatActivity {
             // Text input has changed
             @Override
             public void afterTextChanged(Editable s) {
-                if(author.getText().toString().isEmpty())
+                if(author.getText().toString().trim().isEmpty())
                     author.setError(getString(R.string.author_error));
             }
         });
@@ -109,7 +109,7 @@ public class AddView extends AppCompatActivity {
             // Text input has changed
             @Override
             public void afterTextChanged(Editable s) {
-                if(year_of_publication.getText().toString().length() != 4)
+                if(year_of_publication.getText().toString().trim().length() != 4)
                     year_of_publication.setError(getString(R.string.year_of_publication_error));
             }
         });
@@ -158,19 +158,20 @@ public class AddView extends AppCompatActivity {
     }
 
     public void validateInputs(){
-        if(book_title.getText().toString().isEmpty())
+
+        if(book_title.getText().toString().trim().isEmpty())
             book_title.setError(getString(R.string.book_title_error));
         else book_title.setError(null);
 
-        if(year_of_publication.getText().toString().isEmpty())
+        if(year_of_publication.getText().toString().trim().isEmpty())
             year_of_publication.setError(getString(R.string.year_of_publication_error));
         else year_of_publication.setError(null);
 
-        if(genre.getText().toString().isEmpty())
+        if(genre.getText().toString().trim().isEmpty())
             genre.setError(getString(R.string.genre_error));
         else genre.setError(null);
 
-        if(author.getText().toString().isEmpty())
+        if(author.getText().toString().trim().isEmpty())
             author.setError(getString(R.string.author_error));
         else author.setError(null);
     }

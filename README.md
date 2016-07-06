@@ -19,7 +19,7 @@ This is the Interactive screen. The user is able to add a new book provided all 
 This is the view book screen. The app just seemed incomplete without this implementation so I decided to add the view. When the user clicks a book, a new view opens up that shows the details of the book. There is no more information than what was provided on the recyclerview. However the font size is bigger and clearer here.
 
 ####Build instructions:
-There is a pre-configured gradle wrapper included in the project. The project can be built using `./gradlew assembleDebug` command. The `.apk` file will be located in `app/build/outputs/apk` and named `app-debug.apk`. It can then be installed in the phone.
+There is a pre-configured gradle wrapper included in the project. The project can be built using `./gradlew assembleDebug` command. The `.apk` file will be located in `app/build/outputs/apk` and named `app-debug.apk`. It can then be installed in the phone. If using the newest version of the android emulator, one can drag and drop the apk file for installation.
 
 ####Screenshots:
 <img src="img/screenshot1.png" alt="Screenshot 1" width="200px" />

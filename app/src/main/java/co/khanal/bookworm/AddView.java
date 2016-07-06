@@ -39,17 +39,7 @@ public class AddView extends AppCompatActivity {
         orientation change as well.
          */
 
-        if(book_title.getText().toString().isEmpty())
-            book_title.setError(getString(R.string.book_title_error));
-
-        if(year_of_publication.getText().toString().isEmpty())
-            year_of_publication.setError(getString(R.string.year_of_publication_error));
-
-        if(genre.getText().toString().isEmpty())
-            genre.setError(getString(R.string.genre_error));
-
-        if(author.getText().toString().isEmpty())
-            author.setError(getString(R.string.author_error));
+        validateInputs();
 
         book_title.addTextChangedListener(new TextWatcher() {
             @Override
@@ -159,4 +149,29 @@ public class AddView extends AppCompatActivity {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        validateInputs();
+
+    }
+
+    public void validateInputs(){
+        if(book_title.getText().toString().isEmpty())
+            book_title.setError(getString(R.string.book_title_error));
+        else book_title.setError(null);
+
+        if(year_of_publication.getText().toString().isEmpty())
+            year_of_publication.setError(getString(R.string.year_of_publication_error));
+        else year_of_publication.setError(null);
+
+        if(genre.getText().toString().isEmpty())
+            genre.setError(getString(R.string.genre_error));
+        else genre.setError(null);
+
+        if(author.getText().toString().isEmpty())
+            author.setError(getString(R.string.author_error));
+        else author.setError(null);
+    }
 }

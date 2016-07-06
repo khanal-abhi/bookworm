@@ -51,10 +51,16 @@
     </style>
 
     <style name="viewbook_items">
-        <item name="android:textSize">32sp</item>
-        <item name="android:padding">20dp</item>
-        <item name="android:layout_margin">10dp</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:layout_margin">5dp</item>
         <item name="android:color">@color/dark_grey</item>
+    </style>
+
+    <style name="viewbook_labels">
+        <item name="android:textSize">26sp</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:color">@color/colorAccent</item>
     </style>
 
 </resources>
